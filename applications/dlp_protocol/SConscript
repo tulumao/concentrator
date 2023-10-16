@@ -1,0 +1,14 @@
+from building import *
+
+cwd  = GetCurrentDir()
+
+
+src = Glob('src/*.c')
+    
+CPPPATH = [
+cwd + '/inc',
+]
+
+group = DefineGroup('dlp_protocol', src, depend = [''], CPPPATH = CPPPATH)
+
+Return('group')

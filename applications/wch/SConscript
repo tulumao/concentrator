@@ -1,0 +1,14 @@
+from building import *
+
+cwd  = GetCurrentDir()
+
+
+src = Glob('src/*.c')
+    
+CPPPATH = [
+cwd + '/inc',
+]
+
+group = DefineGroup('wch', src, depend = ['BSP_USING_EXTERN_ETH'], CPPPATH = CPPPATH)
+
+Return('group')
