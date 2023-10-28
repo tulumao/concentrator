@@ -40,9 +40,18 @@ RM := rm -rf
 -include rt-thread/components/drivers/misc/subdir.mk
 -include rt-thread/components/drivers/ipc/subdir.mk
 -include rt-thread/components/drivers/i2c/subdir.mk
+-include rt-thread/components/drivers/hwcrypto/subdir.mk
 -include rt-thread/components/dfs/src/subdir.mk
 -include rt-thread/components/dfs/filesystems/devfs/subdir.mk
 -include packages/vconsole-latest/subdir.mk
+-include packages/syswatch-latest/src/subdir.mk
+-include packages/netutils-latest/tftp/subdir.mk
+-include packages/netutils-latest/telnet/subdir.mk
+-include packages/netutils-latest/tcpdump/subdir.mk
+-include packages/netutils-latest/ping/subdir.mk
+-include packages/netutils-latest/ntp/subdir.mk
+-include packages/netutils-latest/netio/subdir.mk
+-include packages/netutils-latest/iperf/subdir.mk
 -include packages/minIni-v1.2.0/dev/subdir.mk
 -include packages/littlefs-latest/subdir.mk
 -include packages/at_device-latest/src/subdir.mk
@@ -111,6 +120,7 @@ RM := rm -rf
 -include build/applications/dlp_protocol/subdir.mk
 -include build/applications/subdir.mk
 -include board/subdir.mk
+-include applications/wch/src/subdir.mk
 -include applications/upp_protocol/src/subdir.mk
 -include applications/src/subdir.mk
 -include applications/dlp_protocol/src/subdir.mk
@@ -147,7 +157,7 @@ all: rtthread.elf secondary-outputs
 
 # 工具调用
 rtthread.elf: $(OBJS) $(USER_OBJS)
-	arm-none-eabi-gcc -T "D:\RT-ThreadStudio\workspace\Concentrator_v0_0_12\board\linker_scripts\link.ld" -Wl,-Map,"rtthread.map" --specs=nano.specs -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -Wl,--gc-sections,-Map=rtthread.map,-cref,-u,Reset_Handler -o "rtthread.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -T "D:\RT-ThreadStudio\workspace\Concentrator_v0_0_17\board\linker_scripts\link.ld" -Wl,-Map,"rtthread.map" --specs=nano.specs -mcpu=cortex-m4 -mthumb -mfpu=fpv4-sp-d16 -mfloat-abi=hard -ffunction-sections -fdata-sections -Wl,--gc-sections,-Map=rtthread.map,-cref,-u,Reset_Handler -o "rtthread.elf" $(OBJS) $(USER_OBJS) $(LIBS)
 
 rtthread.bin: rtthread.elf
 	arm-none-eabi-objcopy -O binary "rtthread.elf"  "rtthread.bin"

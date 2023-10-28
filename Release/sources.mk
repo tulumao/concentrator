@@ -22,6 +22,7 @@ SUBDIRS := \
 applications/dlp_protocol/src \
 applications/src \
 applications/upp_protocol/src \
+applications/wch/src \
 board \
 build/applications \
 build/applications/dlp_protocol \
@@ -90,9 +91,18 @@ packages/at_device-latest/samples \
 packages/at_device-latest/src \
 packages/littlefs-latest \
 packages/minIni-v1.2.0/dev \
+packages/netutils-latest/iperf \
+packages/netutils-latest/netio \
+packages/netutils-latest/ntp \
+packages/netutils-latest/ping \
+packages/netutils-latest/tcpdump \
+packages/netutils-latest/telnet \
+packages/netutils-latest/tftp \
+packages/syswatch-latest/src \
 packages/vconsole-latest \
 rt-thread/components/dfs/filesystems/devfs \
 rt-thread/components/dfs/src \
+rt-thread/components/drivers/hwcrypto \
 rt-thread/components/drivers/i2c \
 rt-thread/components/drivers/ipc \
 rt-thread/components/drivers/misc \
